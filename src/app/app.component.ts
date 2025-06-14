@@ -1,35 +1,36 @@
-import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
+import { TopMenuComponent } from './components/top-menu/top-menu.component';
+import { LeftSideMenuComponent } from './components/left-side-menu/left-side-menu.component';
+import { CategoryComponent } from './components/category/category.component';
+import { DeleteConfirmationModalComponent } from './components/delete-confirmation-modal/delete-confirmation-modal.component';
+import { GenerateAnswerModalComponent } from './components/generate-answer-modal/generate-answer-modal.component';
+import { PreparationComponent } from './components/preparation/preparation.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatListModule } from '@angular/material/list';
-import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatCardModule } from '@angular/material/card';
-import { MatTabsModule } from '@angular/material/tabs';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { UserPanelComponent } from './components/user-panel/user-panel.component';
+import { HttpClientModule } from '@angular/common/http';
+
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [
     RouterOutlet,
-    RouterLink,
-    RouterLinkActive,
-    CommonModule,
+    HttpClientModule,
     MatSidenavModule,
-    MatFormFieldModule,
-    MatListModule,
-    MatIconModule,
     MatToolbarModule,
-    MatButtonModule,
-    MatGridListModule,
-    MatCardModule,
-    MatTabsModule,
+    CategoryComponent,
+    DeleteConfirmationModalComponent,
+    GenerateAnswerModalComponent,
+    LeftSideMenuComponent,
+    PreparationComponent,
+    TopMenuComponent,
+    PageNotFoundComponent,
+    UserPanelComponent,
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'interview-master';
 }

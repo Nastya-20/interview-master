@@ -1,21 +1,20 @@
-
-<mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav mode="side" opened="true" class="example-sidenav">
+<mat-sidenav-container class="container">
+  <mat-sidenav #sidenav mode="side" opened="true" class="sidenav">
     <div class="side-bar-title">
       <h2>Categories</h2>
     </div>
-    <mat-nav-list>
-      <a mat-list-item routerLink="/angular">Angular</a>
-      <a mat-list-item routerLink="/typescript">Typescript</a>
-      <a mat-list-item routerLink="/javascript">Javascript</a>
-      <a mat-list-item routerLink="/rxjs">Rxjs</a>
-    </mat-nav-list>
+    <app-left-side-menu></app-left-side-menu>
   </mat-sidenav>
 
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <a mat-list-item routerLink="/home">Interview preperetion</a>
+      <div class="toolbar-content">
+        <a mat-list-item>Interview preparation</a>
+        <span class="spacer"></span>
+        <app-user-panel></app-user-panel>
+      </div>
     </mat-toolbar>
+    <app-top-menu></app-top-menu>
     <main>
       <router-outlet></router-outlet>
     </main>

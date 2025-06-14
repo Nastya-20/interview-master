@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageNotFoundComponent } from './page-not-found.component';
+import { LeftSideMenuComponent } from './left-side-menu.component';
 
-describe('PageNotFoundComponent', () => {
-  let component: PageNotFoundComponent;
-  let fixture: ComponentFixture<PageNotFoundComponent>;
+describe('LeftSideMenuComponent', () => {
+  let component: LeftSideMenuComponent;
+  let fixture: ComponentFixture<LeftSideMenuComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PageNotFoundComponent]
+      imports: [LeftSideMenuComponent]
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(PageNotFoundComponent);
+    fixture = TestBed.createComponent(LeftSideMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
