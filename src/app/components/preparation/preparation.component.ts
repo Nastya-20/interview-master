@@ -57,7 +57,7 @@ export class PreparationComponent implements OnInit, OnDestroy {
     id: number
   ): void {
     this.preparationService
-      .updatePreparationQuestionById(question, id)
+      .updatePreparationQuestionById(this.category, question, id)
       .pipe(switchMap(() => this.preparationService.getPreparationQuestionsByCategory(this.category)))
       .subscribe((response) => {
         console.log(response);
