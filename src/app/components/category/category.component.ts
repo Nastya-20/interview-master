@@ -9,11 +9,12 @@ import { Subject, switchMap, takeUntil } from 'rxjs';
 import { CategoriesService } from '../../services/categories.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TruncatePipe } from '../../pipes/truncate.pipe';
+import { GenerateAnswerModalComponent } from '../generate-answer-modal/generate-answer-modal.component';
 
 @Component({
   selector: 'app-category',
   standalone: true,
-  imports: [MatTableModule, MatButtonModule, MatProgressSpinnerModule, TruncatePipe],
+  imports: [MatTableModule, MatButtonModule, MatProgressSpinnerModule, TruncatePipe, GenerateAnswerModalComponent],
   templateUrl: './category.component.html',
   styleUrl: './category.component.scss',
 })
@@ -50,6 +51,20 @@ export class CategoryComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.destroy$.next();
     this.destroy$.complete();
+  }
+
+  openGenerateAnswerModal(question: QuestionItem, index: number): void {
+    const dialogRef = this.dialog.open(GenerateAnswerModalComponent, {
+      width: '600px',
+      data: { ...question, index }
+    });
+
+    dialogRef.afterClosed().subscribe((result: string | undefined) => {
+      if (result) {
+        question.answer = result;
+        console.log('Answer saved:', result);
+      }
+    });
   }
 
   deleteAnswer(categoryName: string, id: number): void {

@@ -20,7 +20,7 @@
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef></th>
     <td mat-cell *matCellDef="let element; let i = index">
-      <button mat-flat-button color="primary" class="text-uppercase" (click)="openGenerateDialog(element, i)">
+      <button mat-flat-button color="primary" class="text-generate-answer" (click)="openGenerateDialog(element, i)">
         Generate Answer</button>
       <button mat-button color="warn" class="text-uppercase" (click)="openDeleteDialog(element)">Delete</button>
     </td>

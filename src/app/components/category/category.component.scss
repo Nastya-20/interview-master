@@ -1,31 +1,74 @@
 .question-table {
-  width: 100%;
+  width: 1178px;
+  background-color: #424242;
+  color: #fff;
+  border-left: 1px solid #757575;
 }
 
 .mat-column-position {
   width: 32px;
-  padding-right: 24px;
+  border-bottom: 1px solid #757575;
+  padding: 20px 16px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 143%;
+  letter-spacing: 0.09em;
   text-align: center;
+  color: #fff;
 }
 
 .mat-column-question {
-  padding-left: 16px;
+  width: 264px;
+  height: 40px;
   font-size: 18px;
+  border-bottom: 1px solid #757575;
+  padding: 20px 16px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 143%;
+  letter-spacing: 0.09em;
+  color: #fff;
+}
+
+.mat-column-answer {
+  width: 684px;
+  height: 60px;
+  font-size: 18px;
+  color: #fff;
+  border-bottom: 1px solid #757575;
+  padding: 20px 16px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 143%;
+  letter-spacing: 0.09em;
 }
 
 .mat-column-actions {
-  white-space: nowrap; // Prevents content from wrapping to a new line
-  text-align: right; // Aligns the content to the right of the cell
+  width: 80px;
+  white-space: nowrap;
+  text-align: left;
+  color: #fff;
+  border-bottom: 1px solid #757575;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 143%;
+  letter-spacing: 0.09em;
 
   button {
-    margin-right: 8px; // Adds margin to the right of each button
+    margin-right: 8px;
+    border-radius: 4px;
+    padding: 0px 16px;
+    width: 88px;
+    height: 36px;
+    background: #7c4dff;
   }
 
   button:last-child {
-    margin-right: 0; // Removes margin from the last button
+    margin-right: 0;
   }
 }
 
 .text-uppercase {
   text-transform: uppercase;
+  color: #fff;
 }

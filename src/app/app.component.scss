@@ -4,20 +4,39 @@
 
 .sidenav {
   width: 200px;
+  background-color: #424242;
+  color: #fff;
 }
 
 .content {
   padding: 20px;
 }
 
-.side-bar-title {
-  padding: 16px;
+.side-bar-title h2 {
+  padding: 20px 63px 20px 18px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: 0.06em;
+  text-align: center;
+  color: #fff;
 }
-
+.toolbar {
+  background-color: #7C4DFF;
+  color: #fff;
+}
 .toolbar-content {
   display: flex;
   align-items: center;
   width: 100%;
+}
+.list-item-title {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 175%;
+  letter-spacing: 0.08em;
+  text-align: center;
+  color: #fff;
 }
 
 .spacer {

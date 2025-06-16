@@ -6,7 +6,9 @@
 </div>
 } @else {
 @if (data.answer) {
-<p class="modal-content" [appTypingAnimation]="data.answer" [typingSpeed]="50"></p>
+  <p class="modal-content" [appTypingAnimation]="data.answer" [typingSpeed]="50">
+    {{ data.answer }}
+  </p>
 }
 <div class="modal-actions">
   <button mat-button color="accent" (click)="regenerateAnswer()">REGENERATE</button>
