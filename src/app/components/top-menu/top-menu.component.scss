@@ -8,15 +8,11 @@
   text-align: center;
   color: #fff;
 
-  .mat-tab-label {
-    color: #fff;
-  }
-
-  .mat-tab-label.mat-tab-label-active {
+  .mdc-tab-indicator {
     color: #7C4DFF;
   }
-
-  .mat-ink-bar {
-    background-color: #7C4DFF;
-  }
+ .mat-tab-group-label {
+      color: #7C4DFF;
+    }
 }
+
