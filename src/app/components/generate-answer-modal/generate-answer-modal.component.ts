@@ -57,6 +57,6 @@ export class GenerateAnswerModalComponent implements OnInit {
   }
 
   saveAnswer() {
-    this.dialogRef.close(this.data.answer);
+    this.dialogRef.close(this.data);
   }
 }

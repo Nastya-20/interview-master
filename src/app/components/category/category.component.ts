@@ -9,11 +9,12 @@ import { Subject, switchMap, takeUntil } from 'rxjs';
 import { CategoriesService } from '../../services/categories.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { TruncatePipe } from '../../pipes/truncate.pipe';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-category',
   standalone: true,
-  imports: [MatTableModule, MatButtonModule, MatProgressSpinnerModule, TruncatePipe],
+  imports: [CommonModule, MatTableModule, MatButtonModule, MatProgressSpinnerModule, TruncatePipe],
   templateUrl: './category.component.html',
   styleUrl: './category.component.scss',
 })
@@ -22,6 +23,16 @@ export class CategoryComponent implements OnInit, OnDestroy {
   dataSource = new MatTableDataSource<QuestionItem>();
   category: string = '';
   isLoading = false;
+
+  expandedAnswers: Record<number, boolean> = {};
+
+  toggleAnswer(id: number): void {
+    this.expandedAnswers[id] = !this.expandedAnswers[id];
+  }
+
+  isExpanded(id: number): boolean {
+    return !!this.expandedAnswers[id];
+  }
 
   private destroy$ = new Subject<void>();
 
@@ -65,12 +76,22 @@ export class CategoryComponent implements OnInit, OnDestroy {
       width: '333px',
     });
 
-    dialogRef.afterClosed().subscribe((result: boolean) => {
-      console.log('The dialog was closed', result);
-      if (result) {
-        console.log('Question would be deleted.', question);
-        this.deleteAnswer(this.category, question.id);
+    // dialogRef.afterClosed().subscribe((result: boolean) => {
+    //   console.log('The dialog was closed', result);
+    //   if (result) {
+    //     console.log('Question would be deleted.', question);
+    //     this.deleteAnswer(this.category, question.id);
+    //   }
+    // });
+    dialogRef.afterClosed().subscribe((updatedQuestion: QuestionItem) => {
+      if (updatedQuestion) {
+        const index = this.dataSource.data.findIndex(q => q.id === updatedQuestion.id);
+        if (index !== -1) {
+          this.dataSource.data[index] = updatedQuestion;
+          this.dataSource._updateChangeSubscription();
+        }
       }
     });
+
   }
 }

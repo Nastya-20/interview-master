@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, OnDestroy, OnInit } from '@angular/core';
 import { MatTabChangeEvent, MatTabsModule } from '@angular/material/tabs';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
@@ -10,6 +10,7 @@ import { Subject, takeUntil } from 'rxjs';
   imports: [MatTabsModule, RouterModule],
   templateUrl: './top-menu.component.html',
   styleUrls: ['./top-menu.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class TopMenuComponent implements OnInit, OnDestroy {
   public tabIndex = 0;
@@ -25,6 +26,7 @@ export class TopMenuComponent implements OnInit, OnDestroy {
     }
 
     this.tabIndex = event.index;
+
     const tabName = event?.tab?.textLabel?.toLowerCase();
     this.router.navigate(['/preparation'], {
       relativeTo: this.route,
