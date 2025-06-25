@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 import { SignInModalComponent } from '../sign-in-modal/sign-in-modal.component';
 import { SignUpModalComponent } from '../sign-up-modal/sign-up-modal.component';
 import { StorageService } from '../../services/storage.service';
-import { jwtDecode } from 'jwt-decode';
+//import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-user-panel',
@@ -27,14 +27,21 @@ export class UserPanelComponent implements OnInit {
     this.user$ = this.storageService.getTokenObservable().pipe(
       map((token) => {
         if (token) {
-          const parsedPoken = jwtDecode(token) as any;
-          return {
-            email: parsedPoken?.email,
-          };
-        } else {
-          return null;
+          const decoded = JSON.parse(atob(token));
+          return { email: decoded?.email };
         }
+        return null;
       })
+      // map((token) => {
+      //   if (token) {
+      //     const parsedPoken = jwtDecode(token) as any;
+      //     return {
+      //       email: parsedPoken?.email,
+      //     };
+      //   } else {
+      //     return null;
+      //   }
+      // })
     );
   }
 

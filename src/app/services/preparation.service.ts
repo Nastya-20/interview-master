@@ -9,7 +9,7 @@ import { get } from 'lodash';
   providedIn: 'root',
 })
 export class PreparationService {
-  public baseUrl = 'http://localhost:4200';
+  public baseUrl = 'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
 
