@@ -8,6 +8,7 @@
     "start:backend": "json-server-auth server/db.json -r server/routes.json",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "build:prod": "ng build --configuration production",
     "test": "ng test"
   },
   "private": true,
